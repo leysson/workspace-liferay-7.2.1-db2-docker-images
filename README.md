@@ -4,7 +4,34 @@
 
 This is the repository of the Liferay Workspace (version 7.2) linked to the article [How to build Docker Liferay 7.2 image with the Oracle Database support](https://www.dontesta.it/en/2019/08/21/how-to-build-a-docker-liferay-7-2-image-with-the-oracle-database-support/) published on the blog [Antonio Musarra's Blog](https://www.dontesta.it).
 
+The content of this repository is ready for use. The steps you need to perform to start your container immediately is:
 
+
+
+1. An instance of an Oracle 12c Release 2 database
+2. Clone this repository
+3. Review JDBC Connection on **configs/docker/portal-ext.properties**
+4. Build custom image
+5. Start custom image
+
+
+
+```bash
+$ git clone https://github.com/amusarra/liferay-72-oracledb-docker-images.git
+$ cd liferay-72-oracledb-docker-images
+$ vi configs/docker/portal-ext.properties # For review JDBC Connection settings
+$ blade gw clean buildDockerImage -Pliferay.workspace.environment=docker
+$ docker run -d -it --name Liferay72-Oracle \
+	-p 8080:8080 -p 11311:11311 \
+	-v $(pwd)/build/docker:/etc/liferay/mount \
+	-P liferay-72-oracledb-docker-images:docker
+```
+
+Console 1 - Commands to execute to start the custom image
+
+
+
+You can now manage Liferay’s Docker images in Liferay Workspace and push your Docker custom image on Docker Hub or other registry ! 😉
 
 ## Project License
 
