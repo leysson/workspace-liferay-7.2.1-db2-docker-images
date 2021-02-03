@@ -1,4 +1,4 @@
-# How to build a Docker Liferay 7.2 image with the Oracle Database support
+# Como construir uma imagem Docker Liferay 7.2.1-GA2 com o suporte do banco de dados DB2
 
 ![](https://www.dontesta.it/wp-content/uploads/2019/08/HowToBuildLiferay72DockerImageFeatureImage.png)
 
